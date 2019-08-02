@@ -6,6 +6,8 @@ You should work on the master branch. At any point you can check out the finishe
 
 ## Initial HTML Tutorial
 
+[View completed branch: 1-html-workshop-end](https://github.com/adaapp/ui-babylon/tree/1-html-workshop-end)
+
 1. Create a new folder on your computer, and open the folder in your text editor
 2. Create a new file called index.html and open it
 3. Type html and then press tab to choose the html:5 prediction. This should result in the following output:
@@ -69,6 +71,7 @@ You should work on the master branch. At any point you can check out the finishe
 </footer>
 ```
 That's all our HTML content for now. Next we will use CSS to make the sections 100% of the height of the viewport.
+
 
 
 ## Initial CSS Tutorial

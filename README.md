@@ -262,3 +262,126 @@ The bubbles look a bit long on desktop. Let's constrain them with a max-width, b
 ## Initial UI Framework Tutorial
 
 [View completed branch: 4-framework-workshop-end](https://github.com/adaapp/ui-babylon/tree/4-framework-workshop-end)
+
+1. Install Semantic UI
+
+Head to the [Semantic UI Getting Started](https://semantic-ui.com/introduction/getting-started.html) page and choose the "Simpler Setup" option (obviously). Download and unzip the files. Rename the unzipped folder "semantic" and drag it into your project's root directory.
+
+Scroll down to "Include in Your HTML" and paste the snippet into the head of your index.html file, above the link to our style.css file. Be sure to remove the dir name "dist" as there is no such folder in the folder we unzipped:
+
+```html
+<link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/semantic.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./style.css">
+```
+
+Note how the font-size decreased. If you inspect something on the page you'll see that semantic.min.css sets a font-size of 14px by default on the body. Browsers generally to a nice and legible 16px, so we can go ahead and redefine this in our style.css file as 16px, since it comes after Semantic's definition in the HTML file:
+
+```css
+body {
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+```
+
+2. Find and customise the markup for a menu with labeled icons:
+
+It looks something like this:
+
+```html
+<div class="ui labeled icon menu">
+  <a class="item">
+    <i class="gamepad icon"></i>
+    Games
+  </a>
+  <a class="item">
+    <i class="video camera icon"></i>
+    Channels
+  </a>
+  <a class="item">
+    <i class="video play icon"></i>
+    Videos
+  </a>
+</div>
+```
+
+Looking at our wireframe, we want five icons. You can browse all the icons available from Semantic UI on [their icon page](https://semantic-ui.com/elements/icon.html). 
+
+Something like:
+
+```html
+<div class="ui labeled icon menu">
+  <a class="item">
+    <i class="heart icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="calendar outline icon"></i>
+    Appointments
+  </a>
+  <a class="item">
+    <i class="stethoscope icon"></i>
+    Healthcheck
+  </a>
+  <a class="item">
+    <i class="bell icon"></i>
+    Notifications
+  </a>
+  <a class="item">
+    <i class="child icon"></i>
+    You
+  </a>
+</div>
+```
+
+It looks a bit wonky. A bit of reading around the docs suggest that if we add classes as follows: "ui secondary labeled icon fluid five item mini menu" it'll look much better. "secondary" removes the shadow, "fluid" makes them responsive, "five item" makes them 20% wide, and "mini" reduces their size. While we're at it let's make the containing element a nav element rather than the unsemantic div from the docs:
+
+```html
+<nav class="ui secondary labeled icon fluid five item mini menu">
+  <a class="item">
+    <i class="heart icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="calendar outline icon"></i>
+    Appointments
+  </a>
+  <a class="item">
+    <i class="stethoscope icon"></i>
+    Healthcheck
+  </a>
+  <a class="item">
+    <i class="bell icon"></i>
+    Notifications
+  </a>
+  <a class="item">
+    <i class="male icon"></i>
+    You
+  </a>
+</nav>
+```
+
+3. Add custom CSS
+
+You'll always need to write your own CSS. Let's stick it to the bottom and give it the grey background and border-top, as per the prototype:
+
+```css
+#welcome nav {
+  background: #eeeeee;
+  border-top: 1px solid #aaa; 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+```
+
+
+## CSS Animation Tutorial
+
+[View completed branch: 5-animation-workshop-end](https://github.com/adaapp/ui-babylon/tree/5-animation-workshop-end)
+
+TBD

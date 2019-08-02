@@ -85,3 +85,14 @@ footer {
 footer input {
   width: 100%;
 }
+
+main {
+  max-width: 28rem;
+  margin: auto;
+}
+
+@media (min-width: 480px) {
+  .bubble {
+    max-width: 73%;
+  }
+}

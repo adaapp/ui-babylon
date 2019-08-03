@@ -422,7 +422,7 @@ The [Animation for Beginners](https://thoughtbot.com/blog/css-animation-for-begi
 3. Our animation properties are as follows:
 
 ```css
-.typing em {
+.typing span {
   animation-name: opacity; 
   animation-duration: 1s; 
   animation-iteration-count: infinite;
@@ -432,7 +432,7 @@ The [Animation for Beginners](https://thoughtbot.com/blog/css-animation-for-begi
 But we can use the shorthand as below:
 
 ```css
-.typing em {
+.typing span {
   animation: opacity 1s infinite;
 }
 ```
@@ -440,15 +440,15 @@ But we can use the shorthand as below:
 They are all happening at the same time. We need to use the animation-delay property on the separate spans using the CSS nth-child selector:
 
 ```css
-.typing em:nth-child(1) {
+.typing span:nth-child(1) {
   animation-delay: 100ms;
 }
 
-.typing em:nth-child(2) {
+.typing span:nth-child(2) {
   animation-delay: 200ms;
 }
 
-.typing em:nth-child(3) {
+.typing span:nth-child(3) {
   animation-delay: 300ms;
 }
 ```

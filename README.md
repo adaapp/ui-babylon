@@ -383,7 +383,6 @@ You'll always need to write your own CSS. Let's stick it to the bottom and give 
 
 [View completed branch: 5-animation-workshop-end](https://github.com/adaapp/ui-babylon/tree/5-animation-workshop-end)
 
-
 There are all sorts of things we could animate. Let's start with three dots fading out one after the other to indicate the other user is typing.
 
 1. Implement our markup:
@@ -405,7 +404,6 @@ The [Animation for Beginners](https://thoughtbot.com/blog/css-animation-for-begi
 > 1. Keyframes - define the stages and styles of the animation.
 > 2. Animation Properties - assign the @keyframes to a specific CSS element and define how it is animated.
 
-
 2. Our keyframe will be a transition of the element's opacity:
 
 ```css
@@ -423,8 +421,8 @@ The [Animation for Beginners](https://thoughtbot.com/blog/css-animation-for-begi
 
 ```css
 .typing span {
-  animation-name: opacity; 
-  animation-duration: 1s; 
+  animation-name: opacity;
+  animation-duration: 1s;
   animation-iteration-count: infinite;
 }
 ```
@@ -482,8 +480,8 @@ There's a gotcha here which is that React doesn't like un-contained HTML and the
 
 ```html
 <body>
-  <a id="skip-to-content" ... > ... </a>
-  <main> 
+  <a id="skip-to-content" ...>...</a>
+  <main>
     ...
   </main>
 </body>
@@ -500,7 +498,7 @@ import "./App.css"
 function App() {
   return (
     <a id="skip-to-content" ... > ... </a>
-    <main> 
+    <main>
       ...
     </main>
   )
@@ -519,7 +517,7 @@ function App() {
   return (
     <>
       <a id="skip-to-content" ... > ... </a>
-      <main> 
+      <main>
         ...
       </main>
     </>
@@ -543,10 +541,97 @@ As a rule, all project-wide CSS goes inside index.css, and any component-specifi
 
 We will need to copy over the semantic directory into the public directory, and add the link and script tags to the index.html.
 
-For performance reasons we are not going to use any Semantic UI JS components so we can go ahead and remove the link to jQuery and semantic.min.js. 
+For performance reasons we are not going to use any Semantic UI JS components so we can go ahead and remove the link to jQuery and semantic.min.js.
 
 Your nav at the bottom of page one should now appear correctly.
 
 Finally, copy over the img directory so it sits inside the public directory. Your images should now work too.
 
+5. Make a Chatbot component
+
+Create a new file called Chatbot.js with the following contents inside a new directory called 'pages':
+
+```jsx
+import React from "react"
+import "./Chatbot.css"
+
+function Chatbot() {
+  return (
+
+  )
+}
+
+export default Chatbot
+```
+
+This is the bones of a React component. Cut and paste the entire `<section id="chatbot" class="page"> ... </section>` from App.js into the return block of the `Chatbot` function.
+
+Create a new file called Chatbot.css in the same directory, and cut and paste from App.css any Chatbot-specific CSS.
+
+6. Do exactly the same for the Welcome page
+
+`pages/Welcome.js` -> `<section id="welcome" class="page">...`</section>``pages/Welcome.css`->`#welcome { padding: 5rem 1rem }` etc. etc.
+
+7. Include your new components inside App.js
+
+Inside App.js, import and use your new Chatbot component:
+
+```jsx
+import React from "react"
+import "./App.css"
+
+import Welcome from "./pages/Welcome"
+import Chatbot from "./pages/Chatbot"
+
+function App() {
+  return (
+    <>
+      <a id="skip-to-content" href="#chatbot" title="Skip to content">
+        Skip to content
+      </a>
+      <main>
+        <Welcome />
+        <Chatbot />
+      </main>
+    </>
+  )
+}
+
+export default App
+```
+
+8. Use state to show or hide the two components:
+
+```jsx
+import React, { useState } from "react"
+import "./App.css"
+
+import Welcome from './pages/Welcome'
+import Chatbot from './pages/Chatbot'
+
+function App() {
+
+  const [initialMessage, setInitialMessage] = useState(null)
+
+  return (
+```
+
+...
+
+```jsx
+<main>
+
+  {!initialMessage && (
+    <Welcome />
+  )}
+  {initialMessage && (
+    <Chatbot />
+  )}
+
+</main>
+```
+
+Here we are saying if an `initialMessage` has not been set, display the welcome component. If it has been set, display the Chatbot component. We give `initialMessage` a default value of `null`, mening the Welcome component shows.
+
+9. Update state when the user submits the initial form:
 

@@ -11,31 +11,14 @@
   top: -10px;
 }
 
-#welcome {
-  padding: 5rem 1rem;
-}
-
-#welcome nav {
-  background: #eeeeee;
-  border-top: 1px solid #aaa; 
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
 
 .logo {
   width: 3rem;
-  margin: 1rem auto;
+  margin: 0rem auto;
   display: block;
 }
 
-#welcome label {
-  text-align: center;
-  
-  display: block;
-  font-weight: bold;
-  margin-bottom: 2rem;
-}
+
 
 input[type="text"] {
   font-size: 16px;
@@ -48,24 +31,7 @@ input[type="text"] {
   margin: 0 auto;
 }
 
-.bubble {
-  display: inline-block;
-  padding: 0.75rem 1rem;
-  border-radius: 1rem;
-  clear: both;
-  margin: 0 0 1rem;
-}
 
-.bot {
-  background: #eeeeee;
-  float: left;
-}
-
-.user {
-  background: #2bbbbb;
-  color: white;
-  float: right;
-}
 
 footer {
   position: absolute;
@@ -83,11 +49,7 @@ main {
   margin: auto;
 }
 
-@media (min-width: 480px) {
-  .bubble {
-    max-width: 73%;
-  }
-}
+
 
 .typing span {
   animation: opacity 1s infinite;

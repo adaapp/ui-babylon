@@ -454,3 +454,99 @@ They are all happening at the same time. We need to use the animation-delay prop
 ```
 
 That's our animation finished.
+
+## React Intro Tutorial
+
+[View completed branch: 5-react-intro-workshop-end](https://github.com/adaapp/ui-babylon/tree/5-react-intro-workshop-end)
+
+Make sure you have Node and NPM installed:
+
+[Install NPM](https://www.npmjs.com/get-npm)
+
+1. Initialise a new Create React App (CRA) project
+
+In your project root, run the create-react-app command to create a new CRA project:
+
+`$ npx create-react-app babylon-react`
+
+This will create a new React app inside a folder called "babylon-react". It will also run `npm install` for you so when it's ready you can just:
+
+`$ cd babylon-react`
+`$ npm start`
+
+The default CRA landing page should appear in your browser at http://localhost:3000
+
+2. Copy over the HTML
+
+There's a gotcha here which is that React doesn't like un-contained HTML and the HTML inside our body tag is only contained by the body:
+
+```html
+<body>
+  <a id="skip-to-content" ... > ... </a>
+  <main> 
+    ...
+  </main>
+</body>
+```
+
+The `a` and the `main` are at the same level. React doesn't let a component return more than one parent HTML element.
+
+This would blow up in our faces:
+
+```jsx
+import React from "react"
+import "./App.css"
+
+function App() {
+  return (
+    <a id="skip-to-content" ... > ... </a>
+    <main> 
+      ...
+    </main>
+  )
+}
+
+export default App
+```
+
+So we need to use what's called a fragment: `<> ... </>` These empty tags serve as suitable "wrappers" or "containers" for our tags that are at the same nested level.
+
+```jsx
+import React from "react"
+import "./App.css"
+
+function App() {
+  return (
+    <>
+      <a id="skip-to-content" ... > ... </a>
+      <main> 
+        ...
+      </main>
+    </>
+  )
+}
+
+export default App
+```
+
+Whatever you do, never add unnecessary markup just to make React work. Fragments are a nice solution and mean you don't need to add real, unnecessary markup.
+
+3. Copy over the CSS
+
+Have a look in App.css and delete everything that's there.
+
+Also delete everything from index.css
+
+As a rule, all project-wide CSS goes inside index.css, and any component-specific CSS goes inside the component's CSS file.
+
+4. Copy over images and Semantic UI
+
+We will need to copy over the semantic directory into the public directory, and add the link and script tags to the index.html.
+
+For performance reasons we are not going to use any Semantic UI JS components so we can go ahead and remove the link to jQuery and semantic.min.js. 
+
+Your nav at the bottom of page one should now appear correctly.
+
+Finally, copy over the img directory so it sits inside the public directory. Your images should now work too.
+
+

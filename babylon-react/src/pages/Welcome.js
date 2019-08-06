@@ -9,13 +9,13 @@ function Welcome(props) {
   }
   
   return (
-    <section id="welcome" class="page">
+    <section id="welcome" className="page">
     <header>
-      <img class="logo" alt="Babylon" src="img/babylon-logo.png" />
+      <img className="logo" alt="Babylon" src="img/babylon-logo.png" />
     </header>
 
     <form action="#chatbot" onSubmit={handleWelcomeForm}>
-      <label for="initial">Hi Laurie, how can I help you?</label>
+      <label htmlFor="initial">Hi Laurie, how can I help you?</label>
       <input
         placeholder="e.g. I have a headache"
         type="text"
@@ -23,25 +23,25 @@ function Welcome(props) {
       />
     </form>
 
-    <nav class="ui secondary labeled fluid five item mini icon menu">
-      <a class="item">
-        <i class="heart icon" />
+    <nav className="ui secondary labeled fluid five item mini icon menu">
+      <a className="item">
+        <i className="heart icon" />
         Home
       </a>
-      <a class="item">
-        <i class="calendar outline icon" />
+      <a className="item">
+        <i className="calendar outline icon" />
         Appointments
       </a>
-      <a class="item">
-        <i class="stethoscope icon" />
+      <a className="item">
+        <i className="stethoscope icon" />
         Healthcheck
       </a>
-      <a class="item">
-        <i class="bell icon" />
+      <a className="item">
+        <i className="bell icon" />
         Notifications
       </a>
-      <a class="item">
-        <i class="child icon" />
+      <a className="item">
+        <i className="child icon" />
         You
       </a>
     </nav>

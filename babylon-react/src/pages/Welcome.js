@@ -1,12 +1,7 @@
 import React from 'react'
-
+ // git stash && git fetch
+ // git pull ali-6-react-workshop-2-end
 function Welcome(props) {
-
-  function handleForm(event) {
-    event.preventDefault()
-    let message = event.target[0].value
-    props.setInitialMessage(message)
-  }
 
   return (
     <section id="welcome" class="page">
@@ -14,10 +9,7 @@ function Welcome(props) {
       <img class="logo" alt="Babylon" src="img/babylon-logo.png" />
     </header>
 
-    <form onSubmit={handleForm} action="#chatbot">
-      <label for="initial">Hi Laurie, how can I help you?</label>
-      <input placeholder="e.g. I have a headache" type="text" name="initial" />
-    </form>
+    {props.children}
 
     <nav class="ui secondary labeled fluid five item mini icon menu">
       <a class="item">

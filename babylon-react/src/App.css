@@ -84,16 +84,7 @@ input[type="text"] {
   float: right;
 }
 
-footer {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
 
-footer input {
-  width: 100%;
-}
 
 main {
   max-width: 28rem;
@@ -131,15 +122,34 @@ main {
   }
 }
 
-@keyframes animateIn {
+.swoosh {
+  animation: swoosh 0.5s 1;
+}
+
+@keyframes swoosh {
   0% {
+    transform: translateY(100vh);
     opacity: 0;
   }
   100% {
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
-.animateIn {
-  animation: animateIn 1s 1;
+article {
+  float: left;
+  padding-bottom: 4rem;
+  width: 100%;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+footer input {
+  width: 100%;
 }

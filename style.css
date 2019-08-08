@@ -11,7 +11,7 @@ body, html {
 }
 
 .page {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -86,10 +86,12 @@ input[type="text"] {
 
 footer {
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 
 footer input {
-  width: 100%;
+  width: 100%;  
 }
 
 main {

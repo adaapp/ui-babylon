@@ -4,8 +4,9 @@ This repo contains example code for the chatbot we implement as part of the UI m
 
 You should work on the master branch. At any point you can check out the finished branches to see how it should look at the end of each workshop.
 
-## Initial HTML Tutorial
+## vanilla js example
 
+<<<<<<< HEAD
 [View completed branch: 1-html-workshop-end](https://github.com/adaapp/ui-babylon/tree/1-html-workshop-end)
 
 1. Clone this repository to your computer and open it in a text editor.
@@ -832,4 +833,8 @@ function App() {
 Here we are saying if an `initialMessage` has not been set, display the welcome component. If it has been set, display the Chatbot component. We give `initialMessage` a default value of `null`, mening the Welcome component shows.
 
 9. Update state when the user submits the initial form:
+=======
+This branch is to demo what the vanilla javascript might be to produce the same results as the ReactJS version. This is to show that vanilla javascript is a vaild way to go on a project if you know what you're doing and the project isn't going to get too big. 
+>>>>>>> new readme added and react app removed
 
+WARNING: as a project scope gets bigger, the code usually gets more complex and will require some sort of strucutre that can easily communicated to your team or others if Open Sourcing. USing a framework is a good choice if you know that a project will get large or require lots of people to work on it at the same time.

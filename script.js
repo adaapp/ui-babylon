@@ -1,5 +1,7 @@
 ;(function(){
     
+    "use strict";
+    
     //
     // get elements
     //
@@ -93,7 +95,7 @@
         article.appendChild(pBot);
 
         // scroll section
-        currentView.scrollTo(0,100000000);
+        window.scrollTo(0,100000000);
     }
 
     // 

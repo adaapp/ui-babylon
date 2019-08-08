@@ -19,12 +19,12 @@
   <a id="skip-to-content" href="#chatbot" title="Skip to content">Skip to content</a>
   <main>
 
-    <section id="welcome" class="page">
+    <section id="welcome" class="page current">
       <header>
         <img class="logo" alt="Babylon" src="img/babylon-logo.png" />
       </header>
 
-      <form action="#chatbot">
+      <form id="intial-message" action="#chatbot">
         <label for="initial">Hi Laurie, how can I help you?</label>
         <input placeholder="e.g. I have a headache" type="text" name="initial" />
       </form>
@@ -56,24 +56,17 @@
       <header>
         <img class="logo" alt="Babylon" src="img/babylon-logo.png" />
       </header>
-      <article>
+      <article id="conversation">
         <p class="bubble bot">Hi Laurie, how can I help you?</p>
-        <p class="bubble user">I have a sore throat.</p>
-        <p class="bubble bot">
-          <span class="typing">
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
-          </span>
-        </p>
       </article>
       <footer>
-        <form>
+        <form id="user-input">
           <input type="text" placeholder="Type a message" />
         </form>
       </footer>
     </section>
   </main>
+  <script src="script.js"></script>
 </body>
 
 </html>

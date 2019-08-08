@@ -85,10 +85,7 @@ input[type="text"] {
 }
 
 footer {
-  position: absolute;
   width: 100%;
-  bottom: 0;
-  left: 0;
 }
 
 footer input {
@@ -129,4 +126,26 @@ main {
   100% {
     opacity: 0;
   }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+section{
+  opacity: 0;
+  display: none;
+  transition: all 1s ease-out;
+  overflow: scroll;
+}
+section.current{
+  animation: fadeIn 1s ease 1 forwards;
+  display: block;
 }

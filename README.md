@@ -1303,7 +1303,7 @@ Add `<script>` tag to end of html `<body>`
 
 2. Adding interactivity with Javascript
 
-Now we have our html and css UI set up we can start adding js interactions. Firstly we can set it our js file with a implicit function call which will run our script in a contained way so that the page can't sabotage our functions and varibles. We do this as javascript has no way of doing function permissions like `private, protected and public` found in many other languages.
+Now we have our html and css UI set up we can start adding js interactions. Firstly we can set it our js file with a implicit function call which will run our script in a contained namespace so that the page can't sabotage our functions and varibles and we don't have variable name collisions. We do this as javascript has no way of doing function permissions like `private, protected and public` or namespaces found in some other languages. 
 
 ```javascript
 ;(function(){
@@ -1315,7 +1315,7 @@ Now we have our html and css UI set up we can start adding js interactions. Firs
 
   // your code here
 
-})
+})();
 ```
 
 Now we have out js file set up we can start catching input submissions to the chat bot.
@@ -1324,7 +1324,7 @@ Now we have out js file set up we can start catching input submissions to the ch
 
 ```javascript
 var userForm = document.getElementById("user-input");
-var initialForm = document.getElementById("intial-message");
+var initialForm = document.getElementById("initial-message");
 
 initialForm.addEventListener("submit",function(e){    
     // stop the default browser submit
@@ -1387,7 +1387,7 @@ function handleInitalFormSubmit(){
 }
 ```
 
-TEST!!! This should now change the section on submit of the first form.
+TEST!!! Open the page in the browser. On form submission we should now see the section change to chatbot.
 
 5. Add input to chatbot
 
@@ -1400,10 +1400,14 @@ Now we are doing something with the user submissions we can add another new func
 initialForm.addEventListener("submit",function(e){    
   ...
   handleInitalFormSubmit(e);
+
+  // user message
   addUserMessage(e);
 });
 initialForm.addEventListener("submit",function(e){    
   ...
+
+  // user message
   addUserMessage(e);
 });
 

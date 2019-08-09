@@ -9,7 +9,7 @@
     // get elements
     //
     var userForm = document.getElementById("user-input");
-    var initialForm = document.getElementById("intial-message");
+    var initialForm = document.getElementById("initial-message");
     var currentView = document.querySelector("section.current"); // .querySelector is relatively new and works in a similar way to jquery selectors
     
     //

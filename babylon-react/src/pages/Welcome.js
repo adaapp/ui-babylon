@@ -4,32 +4,32 @@ import React from 'react'
 function Welcome(props) {
 
   return (
-    <section id="welcome" class="page">
+    <section id="welcome" className="page">
     <header>
-      <img class="logo" alt="Babylon" src="img/babylon-logo.png" />
+      <img className="logo" alt="Babylon" src="img/babylon-logo.png" />
     </header>
 
     {props.children}
 
-    <nav class="ui secondary labeled fluid five item mini icon menu">
-      <a class="item">
-        <i class="heart icon"></i>
+    <nav className="ui secondary labeled fluid five item mini icon menu">
+      <a className="item">
+        <i className="heart icon"></i>
         Home
       </a>
-      <a class="item">
-        <i class="calendar outline icon"></i>
+      <a className="item">
+        <i className="calendar outline icon"></i>
         Appointments
       </a>
-      <a class="item">
-        <i class="stethoscope icon"></i>
+      <a className="item">
+        <i className="stethoscope icon"></i>
         Healthcheck
       </a>
-      <a class="item">
-        <i class="bell icon"></i>
+      <a className="item">
+        <i className="bell icon"></i>
         Notifications
       </a>
-      <a class="item">
-        <i class="child icon"></i>
+      <a className="item">
+        <i className="child icon"></i>
         You
       </a>
     </nav>

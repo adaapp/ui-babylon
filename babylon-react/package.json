@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "concurrently": "^4.1.1",
+    "nodemon": "^1.19.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
   "scripts": {
+    "dev": "concurrently \"npm run nodemon \" \"npm run start\" ",
+    "nodemon": "nodemon -e css,js index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -22,8 +22,9 @@ function App() {
         {!initialMessage && (
           <Welcome>
             <form onSubmit={handleForm} action="#chatbot">
-              <label for="initial">Hi Laurie, how can I help you?</label>
+              <label htmlFor="initial">Hi Laurie, how can I help you?</label>
               <input
+                autoFocus
                 placeholder="e.g. I have a headache"
                 type="text"
                 name="initial"

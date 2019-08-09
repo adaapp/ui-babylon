@@ -1,5 +1,8 @@
 ;(function(){
     
+    // Defines that JavaScript code should be executed in "strict mode",
+    // this helps with js type errors
+    // https://www.w3schools.com/js/js_strict.asp
     "use strict";
     
     //
@@ -7,39 +10,34 @@
     //
     var userForm = document.getElementById("user-input");
     var initialForm = document.getElementById("intial-message");
-    var currentView = document.querySelector("section.current");
+    var currentView = document.querySelector("section.current"); // .querySelector is relatively new and works in a similar way to jquery selectors
     
     //
     // event listeners
     //
-    userForm.addEventListener("submit",function(){
+    initialForm.addEventListener("submit",function(e){
         
-        handleUserFormSubmit();
+        // handle first form submit from user
+        handleInitialFormSubmit(e);
+
+        addUserMessage(e);
         
         // stop the default browser submit
         event.preventDefault();
     });
-    initialForm.addEventListener("submit",function(e){
+
+    userForm.addEventListener("submit",function(e){
         
-        handleInitialFormSubmit(e);
+        // handle subsequent form submits
+        addUserMessage(e);
         
         // stop the default browser submit
-        event.preventDefault();
+        event.preventDefault(e);
     });
 
     //
     // handle form submissions
     //
-    function handleUserFormSubmit(){
-        // get user input message
-        var message = event.target[0].value;
-        
-        // set bubble user message
-        addUserMessage(message);
-
-        // reset input value
-        event.target[0].value = "";
-    }
 
     function handleInitialFormSubmit(e){
         
@@ -49,13 +47,16 @@
         currentView = document.querySelector(e.target.attributes.action.value);
         
         addClass(currentView,"current");
-
-        var message = e.target[0].value;
-        addUserMessage(message);
     }
 
     // add user input to the page
-    function addUserMessage(msg){
+    function addUserMessage(e){
+        // get user input message
+        var msg = e.target[0].value;
+
+        // reset input value
+        e.target[0].value = "";
+
 
         var article = document.querySelector("article#conversation");
         var p = document.createElement("p");
@@ -86,6 +87,7 @@
         // pBot.appendChild(span3);
 
         // this is abit of a hacky way of doing it, you should really do it as above
+        // some browsers now block .innerHTML from js from external domains 
         var dots = `<span>.<span>
                     <span>.<span>
                     <span>.<span>`;
@@ -94,8 +96,9 @@
         
         article.appendChild(pBot);
 
-        // scroll section
-        window.scrollTo(0,100000000);
+        // scroll section to bottom
+        // Challenge: this is a bit hacky and can be made better
+        window.scrollTo(0,10000000);
     }
 
     // 

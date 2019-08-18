@@ -453,6 +453,204 @@ They are all happening at the same time. We need to use the animation-delay prop
 
 That's our animation finished.
 
+## Vanilla Javascript Tutorial
+
+This branch is to demo what the vanilla javascript might be to produce the same results as the ReactJS version. This is to show that vanilla javascript is a vaild way to go on a project if you know what you're doing and the project isn't going to get too big. 
+
+WARNING: as a project scope gets bigger, the code usually gets more complex and will require some sort of structure that can be easily communicated to your team or Open Source communited (big projects tend towards spagetti code when it isn't well structured at the start). Using a framework is a good choice if you know that a project will get large or require lots of people to work on it at the same time.
+
+1.1 Add script.js to your html
+
+Add `<script>` tag to end of html `<body>`
+
+```html
+  ...
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
+1.2 In your code editor create the new scrip.js file and open.
+
+2. Adding interactivity with Javascript
+
+Now we have our html and css UI set up we can start adding js interactions. Firstly we can set it our js file with a implicit function call which will run our script in a contained namespace so that the page can't sabotage our functions and varibles and we don't have variable name collisions. We do this as javascript has no way of doing function permissions like `private, protected and public` or namespaces found in some other languages. 
+
+```javascript
+;(function(){
+  
+  // Defines that JavaScript code should be executed in "strict mode",
+  // this helps with js type errors
+  // https://www.w3schools.com/js/js_strict.asp
+  "use strict";
+
+  // your code here
+
+})();
+```
+
+Now we have out js file set up we can start catching input submissions to the chat bot.
+
+3. Add event listeners to both forms
+
+```javascript
+var userForm = document.getElementById("user-input");
+var initialForm = document.getElementById("initial-message");
+
+initialForm.addEventListener("submit",function(e){    
+    // stop the default browser submit
+    event.preventDefault();
+});
+userForm.addEventListener("submit",function(e){    
+    // stop the default browser submit
+    event.preventDefault();
+});
+```
+
+We're using getElementById to find the two forms so make sure you have the correct id's set on both. After getting the two forms we're adding event listeners to catch the submit event so we can grab the user's input and add a new bubble.
+
+4. Change the view on submit
+
+Currently we have both views stacked ontop of each other–ideally we would like to hide the welcome view and show the chatbot view on submit of the first form. To do this we'll add a `current` class to the welcome section. Which should look something like this:
+
+```html
+<section id="welcome" class="page current">
+```
+
+And set some CSS to only show the `.current` section.
+
+```css
+section{
+  display: none;
+}
+section.current{
+  display: block;
+}
+```
+
+Now we will use Javascript to remove the current class on inital form submit and add it to the second section. Here's the inital event listener but with a new function.
+
+```javascript
+
+// get current view which in this case will get the welcome section
+var currentView = document.querySelector("section.current"); // .querySelector is relatively new and works in a similar way to jquery selectors
+
+
+initialForm.addEventListener("submit",function(e){    
+  // stop the default browser submit
+  event.preventDefault();
+
+  // pass the e event variable to the new function
+  handleInitalFormSubmit(e);
+});
+
+function handleInitalFormSubmit(){
+        
+  // hide welcome section view
+  currentView.classList.remove("current")
+
+  // go find the form action refer on the page, in this case #chatbot
+  // make sure the inital form has an action of #chatbot e.g. action="#chatbot"
+  currentView = document.querySelector(e.target.attributes.action.value);
+  
+  // add current to chatbot section
+  currentView.classList.add("current")
+}
+```
+
+TEST!!! Open the page in the browser. On form submission we should now see the section change to chatbot.
+
+5. Add input to chatbot
+
+Now we are doing something with the user submissions we can add another new function on both listeners to add the input message to the page.
+
+
+```javascript
+...
+
+initialForm.addEventListener("submit",function(e){    
+  ...
+  handleInitalFormSubmit(e);
+
+  // user message
+  addUserMessage(e);
+});
+initialForm.addEventListener("submit",function(e){    
+  ...
+
+  // user message
+  addUserMessage(e);
+});
+
+// 
+// new message function
+//
+function addUserMessage(e){
+  // get user input message
+  var msg = e.target[0].value;
+
+  // reset input value
+  e.target[0].value = "";
+
+  console.log(msg); // display the user input
+}
+```
+
+Above we've added a new function to both event listeners and then logged the user input to the console to check everything is working. You should be seeing both the inital form and the chatbot form input appear in the console.
+
+6. Add input bubbles to the DOM
+
+Now we have the user input all we have left to do is add the text to a new `p`and add to the screen. Lets do that by first getting the element we want to add our p.bubble to and then create a new p, add our text and render that to the screen.
+
+```javascript
+function addUserMessage(e){
+  ...
+
+  // get chatbot article container element
+  var article = document.querySelector("article#conversation");
+
+  // create new DOM node paragraph
+  var p = document.createElement("p");
+
+  // add text input to the p node
+  p.innerText = msg;
+  
+  // add classes
+  p.classList.add("bubble");
+  p.classList.add("user");
+
+  // add to container element
+  article.appendChild(p);
+}
+```
+
+
+7. Stretch goal: add new dots bubble message from bot
+
+Following on after our new p node. we can also add a "thinking" or "loading" indecator to the chatbot reply as follows: create new p node, add classes, add innerHTML span dots, append to the article.
+
+```javascript
+function addUserMessage(e){
+  ...
+
+  // add bot bubble
+  var pBot = document.createElement("p");
+  addClass(pBot,"bubble");
+  addClass(pBot,"bot");
+
+  var dots = `<span>.<span>
+              <span>.<span>
+              <span>.<span>`;
+
+  pBot.innerHTML = dots;
+  
+  article.appendChild(pBot);
+});
+```
+
+And thats it. There is much we can do to make our app better. But for now lets take a step back and look at some of this in ReactJS
+
+
 ## React Intro Tutorial
 
 [View completed branch: 5-react-intro-workshop-end](https://github.com/adaapp/ui-babylon/tree/5-react-intro-workshop-end)
